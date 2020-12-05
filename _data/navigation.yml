@@ -1,0 +1,5 @@
+main:
+  - title: "About me"
+    url: /about
+  - title: "Contacts"
+    url: /contacts

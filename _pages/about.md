@@ -9,7 +9,7 @@ permalink: /about/
 I studied Physics for my Bachelor and Master of Science, and I worked one year in Milan for a consultancy firm as a Data Science consultant before applying for the PhD position I am holding now. If you are interested, you can check my full [CV](/cv/) here.
 {: .text-justify}
 
-I am passionate about Data Science stuff, the world of Open Source software and some general Computer Science topic (such as efficient computing), and my personal interests ranges from sport (mainly the NBA, but I'm italian so I follow some european football too) to videogames to tabeltop roleplaying games.
+I am passionate about Data Science stuff, the world of Open Source software and some general Computer Science topic (such as efficient computing), and my personal interests range from sport (mainly NBA, but I'm italian so I follow some european football too) to videogames to tabeltop roleplaying games.
 {: .text-justify}
 
 Academic interests | Educations

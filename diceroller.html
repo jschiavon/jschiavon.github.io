@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LanciaDadi iFdR</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,300;8..144,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/diceroller.css"> 
+</head>  
+
+
+<svg version="2.0" style="display: none;">
+    <defs>
+        <symbol id="dice-d2" viewbox="0 0 512 512">
+            <path d="M481.1 81.45l-202.6-77.3C271.2 1.383 263.6 0 256 0S240.8 1.383 233.5 4.145L30.89 81.45C12.29 88.55 0 106.4 0 126.3v259.4c0 19.91 12.29 37.75 30.89 44.85l202.6 77.3C240.8 510.6 248.4 512 256 512s15.23-1.383 22.47-4.145l202.6-77.3C499.7 423.5 512 405.6 512 385.7V126.3C512 106.4 499.7 88.55 481.1 81.45zM256 64.07l166.2 63.41L256 189.8L89.77 127.5L256 64.07zM288 435.9V246.2l160-60v188.5L288 435.9z"
+            />
+        </symbol>
+        <symbol id="dice-d3" viewbox="0 0 512 512">
+            <path d="M506.3 417c16.33 28-4.222 63-36.1 63H42.74c-32.89 0-53.33-35.11-36.1-63l213.2-364c16.44-28 57.66-28 73.1 0L506.3 417z"
+            />
+        </symbol>
+        <symbol id="dice-d4" viewbox="0 0 512 512">
+            <path d="M231.6 0c4.143 0 8.185 3.31 8.185 8.524v494.9C239.8 508.5 235.9 512 231.7 512c-1.724 0-3.488-.5858-5.035-1.887l-223.6-188.8C1.037 319.6 0 317.2 0 314.7c0-1.816 .5498-3.647 1.682-5.201L225.3 3.337C226.1 1.031 229.3 0 231.6 0zM512 314.7c0 2.494-1.037 4.961-3.026 6.642l-223.6 188.8C283.8 511.4 282.1 512 280.3 512c-4.196 0-8.153-3.471-8.153-8.543V8.524C272.2 3.31 276.2 0 280.4 0c2.312 0 4.656 1.031 6.346 3.337l223.6 306.1C511.5 311 512 312.8 512 314.7z"
+            />
+        </symbol>
+        <symbol id="dice-d6" viewbox="0 0 512 512">
+            <path d="M7.994 153.5c1.326 0 2.687 .3508 3.975 1.119L208 271.5v223.8c0 9.741-7.656 16.71-16.01 16.71c-2.688 0-5.449-.7212-8.05-2.303l-152.2-92.47C12.13 405.3 0 383.3 0 359.5v-197.7C0 156.1 3.817 153.5 7.994 153.5zM426.2 117.2c0 2.825-1.352 5.647-4.051 7.248L224 242.6L25.88 124.4C23.19 122.8 21.85 119.1 21.85 117.2c0-2.8 1.32-5.603 3.965-7.221l165.1-100.9C201.7 3.023 212.9 0 224 0s22.27 3.023 32.22 9.07l165.1 100.9C424.8 111.6 426.2 114.4 426.2 117.2zM440 153.5C444.2 153.5 448 156.1 448 161.8v197.7c0 23.75-12.12 45.75-31.78 57.69l-152.2 92.5C261.5 511.3 258.7 512 256 512C247.7 512 240 505 240 495.3V271.5l196-116.9C437.3 153.8 438.7 153.5 440 153.5z"
+            />
+        </symbol>
+        <symbol id="dice-d8" viewbox="0 0 512 512">
+            <path d="M231.3 0c4.217 0 8.263 3.331 8.263 8.365v324.3L5.461 247.6C1.968 246.3 0 243 0 239.7c0-2.075 .7542-4.175 2.367-5.836L225.5 2.521C227.2 .779 229.3 0 231.3 0zM31.11 304.6c0-4.377 3.501-8.483 8.109-8.483c.9283 0 1.902 .1666 2.9 .5312l197.5 71.66v135.3C239.6 508.7 235.5 512 231.3 512c-2.038 0-4.116-.7791-5.795-2.52L33.52 310.4C31.84 308.6 31.11 306.6 31.11 304.6zM512 239.7c0 3.355-1.968 6.651-5.461 7.944l-234.1 85.03V8.396c0-5.057 4.049-8.395 8.268-8.395c2.038 0 4.116 .7791 5.795 2.52l223.2 231.3C511.2 235.5 512 237.6 512 239.7zM472.8 296.1c4.608 0 8.109 4.105 8.109 8.483c0 1.998-.7294 4.052-2.416 5.799l-192 199.1C284.8 511.2 282.7 512 280.7 512c-4.219 0-8.268-3.338-8.268-8.395V368.3l197.5-71.66C470.9 296.3 471.9 296.1 472.8 296.1z"
+            />
+        </symbol>
+        <symbol id="dice-d10" viewbox="0 0 512 512">
+            <path d="M150.9 262.1l88.19 61.47v179.5c0 5.293-4.144 8.87-8.507 8.87c-1.897 0-3.836-.6764-5.493-2.182L2.907 307.6C.9169 305.8 .0006 303.4 .0006 300.1c0-3.952 2.508-7.81 6.812-8.706L150.9 262.1zM9.326 255.5c-4.839 0-8.385-4.309-8.385-8.914c0-1.941 .6301-3.935 2.059-5.68l191.8-233.9c1.799-2.2 4.072-3.146 6.297-3.146c4.402 0 8.618 3.702 8.618 8.716c0 .9458-.15 1.938-.4771 2.961L141.5 228L11.09 255.3C10.49 255.4 9.898 255.5 9.326 255.5zM337.4 236.1l-81.44 56.72L174.6 236.1l73.41-230.1C249.3 2.016 252.6 0 256 0s6.74 2.016 8.021 6.047L337.4 236.1zM512 300.1c0 2.389-.9163 4.813-2.906 6.638l-222.2 202.2C285.3 511.3 283.3 512 281.4 512c-4.362 0-8.504-3.592-8.504-8.884v-179.5l88.19-61.47l144.1 30.13C509.5 293.2 512 297 512 300.1zM302.7 15.52c-.3206-1.014-.4678-1.997-.4678-2.935c0-5.027 4.228-8.742 8.639-8.742c2.226 0 4.498 .9458 6.297 3.146l191.8 233.9c1.429 1.745 2.059 3.739 2.059 5.681c0 4.615-3.56 8.938-8.414 8.938c-.5633 0-1.144-.0582-1.739-.1809l-130.4-27.25L302.7 15.52z"
+            />
+        </symbol>
+        <symbol id="dice-d12" viewbox="0 0 512 512">
+            <path d="M113.1 328.5l55.01 172l-85.87-42.95c-10.53-5.281-23.38-18.09-28.62-28.62L6.75 333.5C2.313 324.6 0 314.8 0 304.9V214.6L113.1 328.5zM131.2 300.5L7.531 176.9l51.44-102.8L240 139.3v106.9L131.2 300.5zM256 111L89.72 51.13l88.77-44.37C187.4 2.313 197.2 0 207.1 0h97.78c8.344 0 21.17 3.031 28.61 6.75l88.78 44.37L256 111zM364.6 328.2L305.8 512H206.2l-58.81-183.8L256 273.9L364.6 328.2zM272 139.3l181-65.19l51.44 102.8l-123.6 123.6L272 246.1V139.3zM512 214.6V304.9c0 8.344-3.031 21.16-6.75 28.62l-47.73 95.38c-5.25 10.53-18.09 23.38-28.62 28.62l-85.87 42.95l55.01-172L512 214.6z"
+            />
+        </symbol>
+        <symbol id="dice-d20" viewbox="0 0 512 512">
+            <path d="M20.04 317.3C18 317.3 16 315.8 16 313.3V150.5c0-2.351 1.91-4.012 4.001-4.012c.6882 0 1.396 .18 2.062 .5748l76.62 45.1l-75.28 122.3C22.59 316.8 21.31 317.3 20.04 317.3zM231.4 405.2l-208.2-22.06c-4.27-.4821-7.123-4.117-7.123-7.995c0-1.401 .3725-2.834 1.185-4.161L122.7 215.1L231.4 405.2zM31.1 420.1c0-2.039 1.508-4.068 3.93-4.068c.1654 0 .3351 .0095 .5089 .0291l203.6 22.31v65.66C239.1 508.6 236.2 512 232 512c-1.113 0-2.255-.2387-3.363-.7565L34.25 423.6C32.69 422.8 31.1 421.4 31.1 420.1zM33.94 117.1c-1.289-.7641-1.938-2.088-1.938-3.417c0-1.281 .6019-2.567 1.813-3.364l150.8-98.59C185.1 10.98 187.3 10.64 188.6 10.64c4.32 0 8.003 3.721 8.003 8.022c0 1.379-.3788 2.818-1.237 4.214L115.5 165.8L33.94 117.1zM146.8 175.1l95.59-168.4C245.5 2.53 250.7 0 255.1 0s10.5 2.53 13.62 7.624l95.59 168.4H146.8zM356.4 207.1l-100.4 175.7L155.6 207.1H356.4zM476.1 415.1c2.422 0 3.93 2.029 3.93 4.068c0 1.378-.6893 2.761-2.252 3.524l-194.4 87.66c-1.103 .5092-2.241 .7443-3.35 .7443c-4.2 0-7.994-3.371-7.994-7.994v-65.69l203.6-22.28C475.7 416 475.9 415.1 476.1 415.1zM494.8 370.9C495.6 372.3 496 373.7 496 375.1c0 3.872-2.841 7.499-7.128 7.98l-208.2 22.06l108.6-190.1L494.8 370.9zM316.6 22.87c-.8581-1.395-1.237-2.834-1.237-4.214c0-4.301 3.683-8.022 8.003-8.022c1.308 0 2.675 .3411 4.015 1.11l150.8 98.59c1.211 .7973 1.813 2.076 1.813 3.353c0 1.325-.6488 2.649-1.938 3.429L396.5 165.8L316.6 22.87zM491.1 146.5c2.091 0 4.001 1.661 4.001 4.012v162.8c0 2.483-2.016 4.006-4.053 4.006c-1.27 0-2.549-.5919-3.353-1.912l-75.28-122.3l76.62-45.1C490.6 146.7 491.3 146.5 491.1 146.5z"
+            />
+        </symbol>
+    </defs>
+    <use href="#dice-d2"/>
+    <use href="#dice-d3"/>
+    <use href="#dice-d4"/>
+    <use href="#dice-d6"/>
+    <use href="#dice-d8"/>
+    <use href="#dice-d10"/>
+    <use href="#dice-d12"/>
+    <use href="#dice-d20"/>
+</svg>
+
+
+
+
+<body class="w3-black">
+    <!--<div class="w3-top">
+        <button id="language" class="w3-left w3-button w3-round" onclick="my_translate();">English</button>
+    </div>-->
+
+    <div class="bg-image">
+        <div class="w3-text-white bg-opacity-layer">
+            <header class="w3-section w3-mobile">
+                <h1 class="shadowed bold huge">
+                    Il Fuoco dei Re
+                </h1>
+                <h3 class="shadowed">
+                    Official campaign dice roller
+                </h3>
+                <p>
+                    by <a href="index.html">jschiavon</a> </br>
+                    immagine by <a href="https://itspapaz.github.io/">itspapaz</a> - campaign by <a href="https://www.dmsguild.com/browse.php?author=Damiano%20Pecorari">Damiano Pecorari</a>
+                </p>
+            </header>
+            <div class="w3-section w3-mobile">
+                <div class="w3-section w3-row">
+                    
+                    <div class="w3-container w3-half">
+                        
+                        <div class="w3-section w3-row grid">
+                            <div class="w3-half">
+                                <div class="lvl-esc-grid">
+                                    <p id="livello" class="main shadowed bold huge">
+                                        1
+                                    </p>
+                                    <button class="bottone minus" onclick="changeLevel('-');">
+                                        <i class="fa-solid fa-square-minus"></i>
+                                    </button>
+                                    <p class="w3-xlarge label shadowed trn">Level</p>
+                                    <button class="bottone plus" onclick="changeLevel('+');">
+                                        <i class="fa-solid fa-square-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <div class="w3-half">
+                                <div class="lvl-esc-grid">
+                                    <p id="escalation" class="main shadowed bold huge">
+                                        0
+                                    </p>
+                                    <button class="bottone minus" onclick="changeEscalation('-');">
+                                        <i class="fa-solid fa-square-minus"></i>
+                                    </button>
+                                    <p class="w3-xlarge label shadowed trn">Escalation</p>
+                                    <button class="bottone plus" onclick="changeEscalation('+');">
+                                        <i class="fa-solid fa-square-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                            
+                        <div class="w3-section valori-grid grid">
+                            <button id="d20" class="bottone att" onclick="rolld20('attacco', livello=true, escalation=true);">
+                                <svg class="icon-svg" width="25" height="25" version="2.0">
+                                    <use href="#dice-d20"/>
+                                </svg> <span class="trn">Attack</span> <span id="attacco">0</span>
+                            </button>
+
+                            <button id="d20" class="bottone sec" onclick="rolld20('secondario', livello=true);">
+                                <svg class="icon-svg" width="25" height="25" version="2.0">
+                                    <use href="#dice-d20"/>
+                                </svg> <span class="trn">Secondary</span> <span id="secondario">0</span>
+                            </button>
+                        
+                            <button id="d20" class="bottone ini" onclick="rolld20('iniziativa', livello=true);">
+                                <svg class="icon-svg" width="25" height="25" version="2.0">
+                                    <use href="#dice-d20"/>
+                                </svg> <span class="trn">Initiative</span> <span id="iniziativa">0</span>
+                            </button>
+
+                            <button id="d20" class="bottone arm" onclick="rolld20('armatura', livello=true);">
+                                <svg class="icon-svg" width="25" height="25" version="2.0">
+                                    <use href="#dice-d20"/>
+                                </svg> <span class="trn">Armor</span> <span id="armatura">0</span>
+                            </button>
+                                
+                            <button id="d20" class="bottone fis" onclick="rolld20('fisico', livello=true);">
+                                <svg class="icon-svg" width="25" height="25" version="2.0">
+                                    <use href="#dice-d20"/>
+                                </svg> <span class="trn">Physical</span> <span id="fisico">0</span>
+                            </button>
+
+                            <button id="d20" class="bottone spi" onclick="rolld20('spirito', livello=true);">
+                                <svg class="icon-svg" width="25" height="25" version="2.0">
+                                    <use href="#dice-d20"/>
+                                </svg> <span class="trn">Spirit</span> <span id="spirito">0</span>
+                            </button>
+                        </div>
+                        
+                        <div class="w3-section flat-dice-grid grid">
+                            <button id="d20" class="bottone d20" onclick="rollDice(sides=20);">
+                                <svg class="icon-svg" width="25" height="25" version="2.0">
+                                    <use href="#dice-d20"/>
+                                </svg> d20
+                            </button>
+                            
+                            <button id="d12" class="bottone d12" onclick="rollDice(sides=12);">
+                                <svg class="icon-svg" width="25" height="25" version="2.0">
+                                    <use href="#dice-d12"/>
+                                </svg> d12
+                            </button>
+                        
+                            <button id="d10" class="bottone d10" onclick="rollDice(sides=10);">
+                                <svg class="icon-svg" width="25" height="25" version="2.0">
+                                    <use href="#dice-d10"/>
+                                </svg> d10
+                            </button>
+                            
+                            <button id="d8" class="bottone d8" onclick="rollDice(sides=8);">
+                                <svg class="icon-svg" width="25" height="25" version="2.0">
+                                    <use href="#dice-d8"/>
+                                </svg> d8
+                            </button>
+                        
+                            <button id="d6" class="bottone d6" onclick="rollDice(sides=6);">
+                                <svg class="icon-svg" width="25" height="25" version="2.0">
+                                    <use href="#dice-d6"/>
+                                </svg> d6
+                            </button>
+
+                            <button id="d4" class="bottone d4" onclick="rollDice(sides=4);">
+                                <svg class="icon-svg" width="25" height="25" version="2.0">
+                                    <use href="#dice-d4"/>
+                                </svg> d4
+                            </button>
+                        
+                            <button id="d3" class="bottone d3" onclick="rollDice(sides=3);">
+                                <svg class="icon-svg" width="25" height="25" version="2.0">
+                                    <use href="#dice-d3"/>
+                                </svg> d3
+                            </button>
+
+                            <button id="d2" class="bottone d2" onclick="rollDice(sides=2);">
+                                <svg class="icon-svg" width="25" height="25" version="2.0">
+                                    <use href="#dice-d2"/>
+                                </svg> d2
+                            </button>
+                        </div>
+
+                        <div class="w3-section import-grid grid">
+                            <button onclick="exportValori();" class="import bottone">
+                                <span class="trn">Save</span>
+                            </button>
+                            <button onclick="importValori();" class="export bottone">
+                                <span class="trn">Load</span>
+                            </button>
+                            <button onclick="openDialog();" class="set bottone">
+                                <span class="trn">Edit</span>
+                            </button>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="w3-container w3-half">
+                        <div class="w3-section">
+                            <h4 class="shadowed trn">Result:</h4>
+                            <p id="placeholder" class="shadowed bold huge">
+                                
+                            </p>
+                        </div>
+
+                        <div class="w3-section">
+                            <h4 class="shadowed trn">Detail:</h4>
+                            <p id="fullresult">
+                                
+                            </p>
+                        </div>
+
+                        <div class="w3-section">
+                            <h4 id="average-title" class="shadowed trn">Average d20:</h4>
+                            <p id="average">
+
+                            </p>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
+
+    <div class="w3-section w3-text-white bg-opacity-layer">
+        <h4 class="shadowed trn">History:</h4>
+        <p id="history" class="w3-large">
+        </p>
+    </div>
+
+    
+    
+    <div id="input_form" class="w3-modal w3-mobile">
+        <div class="w3-modal-content w3-animate-zoom bg-black">
+            <div class="w3-text-white bg-opacity-layer">
+                <header class="w3-container">
+                    <span onclick="document.getElementById('input_form').style.display='none'"
+                    class="w3-button w3-display-topright"><i class="fa-solid fa-circle-xmark"></i></span>
+                    <h3  class="shadowed w3-xlarge trn">Insert your PC values</h2>
+                </header>
+
+                <div class="input-valori-grid">
+                    <input id="attack_inpt" 
+                        class="input iatk"
+                        type="number"
+                        >
+                    <p class="shadowed w3-xlarge iatkl trn">Attack</p>
+
+                    <input id="secondary_inpt"
+                        class="input isec"
+                        type="number"
+                        >
+                    <p class="shadowed w3-xlarge isecl trn">Secondary</p>
+                    
+                    <input id="initiative_inpt"
+                        class="input iini"
+                        type="number"
+                        >
+                    <p class="shadowed w3-xlarge iinil trn">Initiative</p>
+                    
+                    <input id="armor_inpt" 
+                        class="input iarm"
+                        type="number"
+                        >
+                    <p class="shadowed w3-xlarge iarml trn">Armor</p>
+                    
+                    <input id="physical_inpt"
+                        class="input ifis"
+                        type="number"
+                        >
+                    <p class="shadowed w3-xlarge ifisl trn">Physical</p>
+                    
+                    <input id="spirit_inpt" 
+                        class="input ispi"
+                        type="number"
+                        >
+                    <p class="shadowed w3-xlarge ispil trn">Spirit</p>
+                </div>
+
+                <footer class="w3-section import-grid">
+                    <button class="bottone import" onclick="resetValori();">
+                        <i class="fa-solid fa-trash"></i> <span class="trn">Reset</span>
+                    </button>
+                    <button class="bottone export" onclick="document.getElementById('input_form').style.display='none'">
+                        <i class="fa-solid fa-xmark"></i> <span class="trn">Cancel</span>
+                    </button>
+                    <button class="bottone set" onclick="applyDialog();">
+                        <i class="fa-solid fa-check"></i> <span class="trn">Apply</span>
+                    </button>
+                </footer>
+            </div>    
+        </div>
+    </div>
+
+    <!--
+    <div id="save_module" class="w3-modal w3-mobile">
+        <div class="w3-modal-content w3-animate-zoom bg-image">
+            <div class="w3-black w3-opacity-min">
+                <header class="w3-container">
+                    <span onclick="document.getElementById('save_module').style.display='none'"
+                    class="bottone w3-display-topright"><i class="fa-solid fa-circle-xmark"></i></span>
+                    <h2>Salva i dati del PG</h2>
+                </header>
+                
+                <footer class="w3-container w3-row">
+                    <div class="w3-container w3-third">
+
+                    </div>
+                    <button class="w3-button w3-third w3-large w3-vivid-red w3-round-large" onclick="document.getElementById('save_module').style.display='none'">
+                        <i class="fa-solid fa-xmark"></i> Annulla
+                    </button>
+                    <button class="w3-button w3-third w3-large w3-vivid-green w3-round-large" onclick="document.getElementById('save_module').style.display='none'">
+                        <i class="fa-solid fa-check"></i> Salva
+                    </button>
+                </footer>
+            </div>
+        </div>
+    </div>
+    -->
+    <!--
+    <div id="open_module" class="w3-modal w3-mobile">
+        <div class="w3-modal-content w3-animate-zoom bg-image">
+            <div class="w3-black w3-opacity-min">
+                <header class="w3-container">
+                    <span onclick="document.getElementById('open_module').style.display='none'" class="w3-button w3-display-topright">
+                        <i class="fa-solid fa-circle-xmark"></i>
+                    </span>
+                    <h2>Importa i dati del PG</h2>
+                </header>
+                
+                <div class="w3-container w3-row w3-cell-top">
+                    <label id="import-label" for="imported_data" class="w3-half w3-cell-top w3-button w3-vivid-reddish-orange w3-large w3-round-large">Select a file:</label>
+                    <input type="file" id="imported_data" name="imported_data" accept=".json">
+
+                    <div id="drop_zone" class="w3-half w3-cell-top w3-large w3-border-red w3-round-large" >
+                        Drag and drop.
+                    </div>
+
+                </div>
+
+                <div id="preview" class="w3-large w3-border-red w3-bottombar w3-round-large">
+                    <p>Nessun file selezionato.</p>
+                </div>
+            
+                <footer class="w3-container w3-row">
+                    <div class="w3-container w3-third">
+
+                    </div>
+                    <button class="w3-button w3-third w3-large w3-vivid-red w3-round-large" onclick="document.getElementById('open_module').style.display='none'">
+                        <i class="fa-solid fa-xmark"></i> Annulla
+                    </button>
+                    <button class="w3-button w3-third w3-large w3-vivid-green w3-round-large" onclick="document.getElementById('open_module').style.display='none'">
+                        <i class="fa-solid fa-check"></i> Ok
+                    </button>
+                </footer>
+            </div>
+        </div>
+    </div>
+    -->
+
+    
+    <script src="assets/js/diceroller.js"></script>
+    
+</body>
+
+</html>

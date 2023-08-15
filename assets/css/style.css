@@ -1451,7 +1451,7 @@ p {
   background-color: var(--bg);
   border: 1px solid var(--lightgray);
   padding: 30px 35px;
-  height: 220px;
+  /* height: 220px; */
   -webkit-transition: all 0.3s ease-out 0s;
   -moz-transition: all 0.3s ease-out 0s;
   -ms-transition: all 0.3s ease-out 0s;

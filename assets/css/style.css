@@ -34,7 +34,7 @@
 @import url("https://fonts.googleapis.com/css?family=Albert+Sans:400,500,600,700,800");
 /* @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800"); */
 
-:root {
+/* :root {
     --theme: 'light';
     --white: #fff;
     --lightgray: #ddd;
@@ -66,9 +66,10 @@
     --navsdw: var(--graytransp);
     --headclr: var(--bg);
     --headsub: var(--prp);
-  }
+  } */
 
-/* :root {
+:root {
+    --theme: 'dark';
     --white: #fff;
     --lightgray: #ddd;
     --gray: #8a8fa3;
@@ -99,7 +100,7 @@
     --navsdw: var(--graytransp);
     --headclr: var(--bg);
     --headsub: var(--prp);
-  } */
+  }
 
 body {
   font-family: "Albert Sans", sans-serif;

@@ -100,6 +100,7 @@
     --navsdw: var(--graytransp);
     --headclr: var(--bg);
     --headsub: var(--prp);
+    --linkclr: var(--prp);
   }
 
 body {
@@ -135,6 +136,10 @@ i,
 span,
 a {
   display: inline-block; }
+
+a {
+  color: var(--linkclr);
+}
 
 h1,
 h2,
